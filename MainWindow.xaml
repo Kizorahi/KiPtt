@@ -1,0 +1,66 @@
+﻿<ui:FluentWindow x:Class="KiPtt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        Title="KiPtt" Height="460" Width="400"
+        WindowStartupLocation="CenterScreen"
+        ExtendsContentIntoTitleBar="True">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ui:TitleBar Title="KiPtt" 
+                     Icon="{ui:SymbolIcon Symbol=Color24}"
+                     ShowMaximize="False" />
+        <StackPanel Grid.Row="1" Margin="20" VerticalAlignment="Center">
+            <Border x:Name="ColorPreview" 
+                    Height="70" 
+                    CornerRadius="8" 
+                    Background="#8A2BE2" 
+                    Margin="0,0,0,15">
+                <TextBlock x:Name="ResultText" 
+                           Text="#8A2BE2" 
+                           Foreground="White" 
+                           FontSize="22" 
+                           FontWeight="Bold" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" />
+            </Border>
+            <ui:Button Content="Скопировать цвет с экрана" 
+                       Appearance="Primary" 
+                       Icon="{ui:SymbolIcon Symbol=EyeDropper24}"
+                       HorizontalAlignment="Stretch" 
+                       Click="StartEyeDropper"
+                       Margin="0,0,0,20" />
+            <UniformGrid Columns="2">
+                <ui:Button x:Name="BtnHex" 
+                           Content="HEX: 8A2BE2" 
+                           HorizontalAlignment="Stretch" 
+                           Margin="0,0,5,8" 
+                           Click="CopyColor_Click" />
+                <ui:Button x:Name="BtnRgb" 
+                           Content="RGB: 138, 43, 226" 
+                           HorizontalAlignment="Stretch" 
+                           Margin="5,0,0,8" 
+                           Click="CopyColor_Click" />
+                <ui:Button x:Name="BtnHsl" 
+                           Content="HSL: 271, 76%, 53%" 
+                           HorizontalAlignment="Stretch" 
+                           Margin="0,0,5,0" 
+                           Click="CopyColor_Click" />
+                <ui:Button x:Name="BtnHsv" 
+                           Content="HSV: 271, 81%, 89%" 
+                           HorizontalAlignment="Stretch" 
+                           Margin="5,0,0,0" 
+                           Click="CopyColor_Click" />
+            </UniformGrid>
+            <TextBlock x:Name="StatusText" 
+                       Text="" 
+                       Foreground="#00E5FF" 
+                       HorizontalAlignment="Center" 
+                       Margin="0,15,0,0" />
+        </StackPanel>
+    </Grid>
+</ui:FluentWindow>
